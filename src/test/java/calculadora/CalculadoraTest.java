@@ -160,4 +160,24 @@ class CalculadoraTest {
                 () -> calc.promedio(null));
         assertEquals("Se requiere al menos un número", exNulo.getMessage());
     }
+
+        @Test
+        @DisplayName("Porcentaje calcula valores normales y superiores al cien por ciento")
+        void porcentajeCasosValidos() {
+                assertAll("porcentaje",
+                                () -> assertEquals(20.0, calc.porcentaje(200, 10), DELTA),
+                                () -> assertEquals(0.0, calc.porcentaje(500, 0), DELTA),
+                                () -> assertEquals(120.0, calc.porcentaje(80, 150), DELTA),
+                                () -> assertEquals(-20.0, calc.porcentaje(-200, 10), DELTA)
+                );
+        }
+
+        @Test
+        @DisplayName("Porcentaje rechaza porcentajes negativos")
+        void porcentajeNegativo() {
+                IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                                () -> calc.porcentaje(200, -10));
+
+                assertEquals("El porcentaje no puede ser negativo", ex.getMessage());
+        }
 }

@@ -1,0 +1,10 @@
+import org.junit.platform.launcher.*;
+import org.junit.platform.launcher.core.*;
+import org.junit.platform.launcher.listeners.*;
+import org.junit.platform.engine.discovery.*;
+var request = LauncherDiscoveryRequestBuilder.request().selectors(DiscoverySelectors.selectClass("calculadora.CalculadoraTest")).build();
+var listener = new SummaryGeneratingListener();
+var launcher = LauncherFactory.create();
+launcher.registerTestExecutionListeners(listener);
+launcher.execute(request);
+listener.getSummary().printTo(new java.io.PrintWriter(System.out));

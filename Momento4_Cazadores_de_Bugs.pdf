@@ -1,0 +1,151 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Length 1169 >>
+stream
+BT
+/F1 10 Tf
+14 TL
+60 770 Td
+(MOMENTO 4. CAZADORES DE BUGS) Tj
+T*
+(Proyecto: taller-junit-calculadora) Tj
+T*
+() Tj
+T*
+(Procedimiento) Tj
+T*
+(Se copio CalculadoraTest.java como CalculadoraConErroresTest.java y se cambio) Tj
+T*
+(el objeto probado por CalculadoraConErrores. Las fallas se identificaron con) Tj
+T*
+(las aserciones rojas y con los valores esperado y obtenido.) Tj
+T*
+() Tj
+T*
+(Resultado: 10 pruebas ejecutadas; 6 familias de comportamiento fallidas y 4 correctas.) Tj
+T*
+() Tj
+T*
+(TABLA 3. REGISTRO DE ERRORES ENCONTRADOS) Tj
+T*
+() Tj
+T*
+(#  METODO       ENTRADA                  ESPERADO / OBTENIDO) Tj
+T*
+(1  restar       restar\(10, 5\)            Esperado: 5 | Obtenido: -5) Tj
+T*
+(   Error: se invirtio el orden; se calcula b - a en vez de a - b.) Tj
+T*
+() Tj
+T*
+(2  multiplicar  multiplicar\(-2, -3\)     Esperado: 6 | Obtenido: -6) Tj
+T*
+(   Error: con dos negativos se cambia incorrectamente el signo del producto.) Tj
+T*
+() Tj
+T*
+(3  dividir      dividir\(10, 0\)          Esperado: ArithmeticException con mensaje) Tj
+T*
+(   No se lanzo excepcion; se obtuvo Infinity.) Tj
+T*
+(   Error: falta validar el divisor antes de dividir entre cero.) Tj
+ET
+
+endstream
+endobj
+3 0 obj
+<< /Length 1533 >>
+stream
+BT
+/F1 10 Tf
+14 TL
+60 770 Td
+(MOMENTO 4. TABLA 3 \(CONTINUACION\)) Tj
+T*
+() Tj
+T*
+(4  esPar        esPar\(-3\)               Esperado: false | Obtenido: true) Tj
+T*
+(   Error: la condicion no reconoce el residuo -1 de un impar negativo.) Tj
+T*
+() Tj
+T*
+(5  factorial     factorial\(5\) y \(20\)      Esperado: 120 y 2432902008176640000) Tj
+T*
+(   Obtenido: 24 y 121645100408832000.) Tj
+T*
+(   Error: el ciclo excluye n; falta multiplicar el ultimo factor.) Tj
+T*
+() Tj
+T*
+(6  promedio      arreglo vacio y null     Esperado: IllegalArgumentException) Tj
+T*
+(   Obtenido: NaN para vacio y NullPointerException para null.) Tj
+T*
+(   Error: no se valida si el arreglo es null o esta vacio.) Tj
+T*
+() Tj
+T*
+(Mensajes esperados segun la especificacion:) Tj
+T*
+(- Division entre cero: No se puede dividir entre cero.) Tj
+T*
+(- Promedio invalido: Se requiere al menos un numero.) Tj
+T*
+() Tj
+T*
+(REFLEXION: PARA PENSAR) Tj
+T*
+(Si solo se hubieran probado numeros positivos y casos normales, no se habrian) Tj
+T*
+(detectado con seguridad tres fallos: multiplicar con dos numeros negativos,) Tj
+T*
+(dividir entre cero y promedio con un arreglo vacio o null.) Tj
+T*
+() Tj
+T*
+(El error de esPar si puede aparecer con un impar positivo como 7. Los errores) Tj
+T*
+(de restar y factorial tambien se revelan con entradas positivas adecuadas.) Tj
+T*
+() Tj
+T*
+(CONCLUSION) Tj
+T*
+(Los casos normales no son suficientes. Los negativos, cero, limites y entradas) Tj
+T*
+(invalidas permitieron distinguir el comportamiento correcto del defectuoso.) Tj
+ET
+
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Kids [ 4 0 R 5 0 R ] /Count 2 >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 4 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000106 00000 n 
+0000001327 00000 n 
+0000002912 00000 n 
+0000003038 00000 n 
+0000003164 00000 n 
+0000003229 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+3278
+%%EOF

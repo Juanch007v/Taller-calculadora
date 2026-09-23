@@ -20,7 +20,7 @@ class CalculadoraConErroresTest {
     }
 
     @Test
-    @DisplayName("Restar - debe devolver a - b")
+    @DisplayName("Restar debe devolver a menos b")
     void restarCasos() {
         assertAll("restar",
                 () -> assertEquals(5, calc.restar(10, 5), DELTA),
@@ -30,7 +30,7 @@ class CalculadoraConErroresTest {
     }
 
     @Test
-    @DisplayName("Multiplicar - el producto de negativos debe ser positivo")
+    @DisplayName("Multiplicar respeta la ley de signos")
     void multiplicarCasos() {
         assertAll("multiplicar",
                 () -> assertEquals(6, calc.multiplicar(2, 3), DELTA),
@@ -45,6 +45,7 @@ class CalculadoraConErroresTest {
     void dividirEntreCero() {
         ArithmeticException ex = assertThrows(ArithmeticException.class,
                 () -> calc.dividir(10, 0));
+
         assertEquals("No se puede dividir entre cero", ex.getMessage());
     }
 
@@ -56,13 +57,13 @@ class CalculadoraConErroresTest {
             "-2, true",
             "-3, false"
     })
-    @DisplayName("esPar - los números impares negativos deben devolver false")
+    @DisplayName("esPar funciona con positivos, cero y negativos")
     void esParCasos(int numero, boolean esperado) {
         assertEquals(esperado, calc.esPar(numero));
     }
 
     @Test
-    @DisplayName("Factorial - debe calcular 5!, 20! y rechazar negativos y sobrecarga")
+    @DisplayName("Factorial valida límites y excepciones")
     void factorialCasos() {
         assertAll("factorial",
                 () -> assertEquals(1, calc.factorial(0)),
@@ -81,7 +82,7 @@ class CalculadoraConErroresTest {
     }
 
     @Test
-    @DisplayName("Promedio - debe validar arreglos vacíos y nulos")
+    @DisplayName("Promedio valida arreglos vacíos y nulos")
     void promedioCasos() {
         assertAll("promedio",
                 () -> assertEquals(4.0, calc.promedio(new double[]{2, 4, 6}), DELTA),
